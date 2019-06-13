@@ -26,15 +26,15 @@
   <nav class="menu sticky-top">
     <ul class="menu-nav">
       <li class="nav-link">
-        <a href="index.html"
+        <a href="{% url 'index' %}" class="{% if '/' == request.path %} active {% endif %}"
           ><i class="fas fa-home nav-icon"></i>
           <span class="nav-item"> Home</span></a
         >
       </li>
       <li class="nav-link">
-        <a href="profile.html" class="active"
+        <a href="{% url 'profile' %}" class="{% if 'profile' in request.path %} active {% endif %}"
           ><i class="fas fa-user-circle nav-icon"></i>
-          <span class="nav-item"> John Doe</span></a
+          <span class="nav-item"> {{ request.user }}</span></a
         >
       </li>
       <li class="nav-link">
@@ -44,7 +44,7 @@
           >
       </li>
       <li class="nav-link">
-        <a href="movies.html" 
+        <a href="{% url 'movies' %}" class="{% if 'movie' in request.path %} active {% endif %}"
           ><i class="fas fa-search nav-icon"></i>
           <span class="nav-item"> Movies</span></a
         >
