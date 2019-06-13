@@ -1,0 +1,156 @@
+{% extends 'base.html' %} {% block content %}
+
+<main>
+  <section
+    class="movie-bg"
+    id="movie-top-image"
+    style="background-color: #333;"
+  >
+    <div class="dark-overlay">
+      <div class="container">
+        <div class="d-flex">
+          <div class="movie-details">
+            <h2>
+              <span id="movie-name">Movie Name</span>
+              <span class="grade-with-movie"
+                >(Average Grade: <span class="text-blue">B</span>)</span
+              >
+            </h2>
+            <p id="description">
+              We do not have an overview for this movie.
+            </p>
+            <h3>Average Grade: <span class="grade">S</span></h3>
+          </div>
+          <div class="grade-movie">
+            <h3>Grade this movie</h3>
+            <div class="grade-box s">
+              <div class="grade-letter">S</div>
+              <div class="width-animation"></div>
+            </div>
+            <div class="grade-box a">
+              <div class="grade-letter">A</div>
+              <div class="width-animation"></div>
+            </div>
+            <div class="grade-box b">
+              <div class="grade-letter">B</div>
+              <div class="width-animation"></div>
+            </div>
+            <div class="grade-box c">
+              <div class="grade-letter">C</div>
+              <div class="width-animation"></div>
+            </div>
+            <div class="grade-box d">
+              <div class="grade-letter">D</div>
+              <div class="width-animation"></div>
+            </div>
+            <div class="grade-box e">
+              <div class="grade-letter">E</div>
+              <div class="width-animation"></div>
+            </div>
+            <div class="grade-box f">
+              <div class="grade-letter">F</div>
+              <div class="width-animation"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="movie-info">
+    <div class="container d-flex">
+      <div class="details bg-white">
+        <div class="d-flex movie-thumb">
+          <div class="movie-image">
+            <img
+              src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/svIDTNUoajS8dLEo7EosxvyAsgJ.jpg"
+              id="poster-image"
+              alt=""
+            />
+          </div>
+          <div class="full-details">
+            <h4 class="genre">Genre</h4>
+            <div class="double-lines"></div>
+            <div class="genre-list" id="genre-list"></div>
+            <h4 class="crew">Featured Crew</h4>
+            <div class="double-lines"></div>
+            <div class="crew-list" id="crew-list"></div>
+            <h5 class="runtime">
+              <i class="fas fa-hourglass-start"></i>
+              <span id="movie-time"> 99</span> min
+            </h5>
+            <h5 class="date-released">
+              <i class="far fa-clock"></i>
+              <span id="release-date"> February 2, 2010</span>
+            </h5>
+            <a href="" class="btn"
+              ><i class="far fa-bookmark"></i> Want to see</a
+            >
+            <a href="" class="btn"
+              ><i class="far fa-star"></i> Add to Top 10</a
+            >
+          </div>
+        </div>
+        <div class="cast-section">
+          <h2 class="cast">Cast</h2>
+          <div class="double-lines"></div>
+
+          <i class="fas fa-angle-left fa-2x d-flex" id="left-arrow"></i>
+          <div class="scrollmenu d-flex" id="cast-list">
+            <div style="height: 275px;"></div>
+          </div>
+          <i class="fas fa-angle-right fa-2x d-flex" id="right-arrow"></i>
+        </div>
+      </div>
+      <div class="reviews">
+        <div class="reviews-top"><span>Reviews</span></div>
+        <div class="reviews-body">
+          <textarea
+            class="add-review"
+            placeholder="Add review..."
+            name=""
+            id=""
+            rows="5"
+          ></textarea>
+          <div class="submit-review">
+            <button class="btn">Save</button>
+          </div>
+
+          <div class="review">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+              earum temporibus laudantium? Eos accusamus ipsam adipisci
+              beatae ut hic inventore.
+            </p>
+            <div class="review-details d-flex">
+              <div><a href="">John Doe</a></div>
+              <div>10 min ago</div>
+              <div>
+                <a href=""><i class="fas fa-arrow-up"></i></a> 10
+                <a href=""><i class="fas fa-arrow-down"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="review">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+              earum temporibus laudantium? Eos accusamus ipsam adipisci
+              beatae ut hic inventore.
+            </p>
+            <div class="review-details d-flex">
+              <div><a href="">John Doe</a></div>
+              <div>10 min ago</div>
+              <div>
+                <a href=""><i class="fas fa-arrow-up"></i></a> 10
+                <a href=""><i class="fas fa-arrow-down"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+{% endblock %}

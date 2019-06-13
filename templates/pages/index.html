@@ -1,5 +1,158 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>Hello</h1>
+<main class="home">
+  <div class="container">
+    <div class="d-flex">
+      <div class="feed">
+        <div class="post shadow">
+          <div class="post-head">
+            <div class="d-flex">
+              <div class="votes shadow">
+                <div class="arrows">
+                    <i class="fas fa-arrow-up"></i>
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+                <div class="total">
+                  10
+                </div>
+              </div>
+              <div class="name-time">
+                <div class="name">
+                  John Doe
+                </div>
+                <div class="time">
+                  <small><i class="fas fa-clock"></i> 3 hours ago</small>
+                </div>
+              </div>
+              <div class="dots">
+                  <i class="fas fa-ellipsis-v"></i>
+              </div>
+            </div>
+          </div>
+          <div class="post-body">
+            <div class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quaerat non reprehenderit ut odit explicabo eos perspiciatis consequatur nihil neque nemo perferendis animi facere enim suscipit, tempore porro consequuntur culpa.
+            </div>
+          </div> 
+          <div class="post-tail">
+            <div class="show-comments">
+               <span><i class="fas fa-comments"></i> Comments 15</span> 
+            </div>
+            <div class="add-comment">
+              <input class="comment" type="text" placeholder="Add comment...">
+              <button>Post</button>
+            </div>
+          </div>             
+        </div>
+        <div class="post shadow">
+          <div class="post-head">
+            <div class="d-flex">
+              <div class="votes shadow">
+                <div class="arrows">
+                    <i class="fas fa-arrow-up"></i>
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+                <div class="total">
+                  10
+                </div>
+              </div>
+              <div class="name-time">
+                <div class="name">
+                  John Doe
+                </div>
+                <div class="time">
+                  <small><i class="fas fa-clock"></i> 3 hours ago</small>
+                </div>
+              </div>
+              <div class="dots">
+                  <i class="fas fa-ellipsis-v"></i>
+              </div>
+            </div>
+          </div>
+          <div class="post-body">
+            <div class="poster">
+              <img src="https://image.tmdb.org/t/p/w1280/phxiKFDvPeQj4AbkvJLmuZEieDU.jpg" alt="">
+            </div>
+            <div class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quaerat non reprehenderit ut odit explicabo eos perspiciatis consequatur nihil neque nemo perferendis animi facere enim suscipit, tempore porro consequuntur culpa.
+            </div>
+          </div> 
+          <div class="post-tail">
+            <div class="show-comments">
+               <span><i class="fas fa-comments"></i> Comments 15</span> 
+            </div>
+            <div class="add-comment">
+              <input class="comment" type="text" placeholder="Add comment...">
+              <button>Post</button>
+            </div>
+          </div>             
+        </div>
+      </div>
+      <div class="sidebar">
+        <div class="sort">
+          <div class="heading">
+            Show Results For
+          </div>
+          <div class="filter-posts"><i class="fas fa-filter"></i> Filter Posts <i class="fas fa-sort-down"></i></div>
+          <div class="content-relative">
+            <ul class="filter" id="filter-options">            
+              <li class="active">All</li>
+              <li>Latest</li>
+              <li>Top (Past Week)</li>
+              <li>Top (Past Month)</li>
+              <li>Top (All Time)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="suggested">
+          <div class="heading">
+            Suggested
+          </div>
+          <div class="suggestions">
+            <div class="suggestion">
+              <div class="avi">
+                <a href="movie.html">
+                  <img class="shadow" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/tGLO9zw5ZtCeyyEWgbYGgsFxC6i.jpg" alt="">
+                </a>
+              </div>
+              <div class="username">
+               <a href="">John Doe</a> 
+              </div>
+              <div class="follow">
+                <button>Follow</button>
+              </div>
+            </div>
+            <div class="suggestion">
+              <div class="avi">
+                <a href="movie.html">
+                  <img class="shadow" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/hjC00Wus7IoCywVTHt68W8QxcyW.jpg" alt="">
+                </a>
+              </div>
+              <div class="username">
+               <a href="">John Doe</a> 
+              </div>
+              <div class="follow">
+                <button>Follow</button>
+              </div>
+            </div>
+            <div class="suggestion">
+              <div class="avi">
+                <a href="movie.html">
+                  <img class="shadow" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2//nu7XIa67cXc2t7frXCE5voXUJcN.jpg" alt="">
+                </a>
+              </div>
+              <div class="username">
+               <a href="">John Doe</a> 
+              </div>
+              <div class="follow">
+                <button>Follow</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
 
 {% endblock %}

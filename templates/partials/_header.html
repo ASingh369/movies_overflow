@@ -1,0 +1,60 @@
+{% load static %}
+<header>
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-flex-container">
+        <div class="left">
+          <div class="search">
+            <input type="text" name="search" placeholder="Search..." />
+            <button class="search-symbol">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+        <div class="middle">
+          <img id="mo-logo" src="{% static 'img/logo1.png' %}" alt="Movies Overflow" />
+        </div>
+        <div class="right">
+          <a href="">Sign Up <i class="fas fa-user-plus"></i></a>
+          <a href="">Sign In <i class="fas fa-sign-in-alt"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="menu sticky-top">
+    <ul class="menu-nav">
+      <li class="nav-link">
+        <a href="index.html"
+          ><i class="fas fa-home nav-icon"></i>
+          <span class="nav-item"> Home</span></a
+        >
+      </li>
+      <li class="nav-link">
+        <a href="profile.html" class="active"
+          ><i class="fas fa-user-circle nav-icon"></i>
+          <span class="nav-item"> John Doe</span></a
+        >
+      </li>
+      <li class="nav-link">
+          <a href=""
+            ><i class="fas fa-pen"></i>
+            <span class="nav-item"> New Post</span></a
+          >
+      </li>
+      <li class="nav-link">
+        <a href="movies.html" 
+          ><i class="fas fa-search nav-icon"></i>
+          <span class="nav-item"> Movies</span></a
+        >
+      </li>
+      <li class="nav-link">
+        <a href=""
+          ><i class="far fa-bell nav-icon"></i>
+          <span class="nav-item"> Notifications</span></a
+        >
+      </li>
+    </ul>
+  </nav>
+</header>

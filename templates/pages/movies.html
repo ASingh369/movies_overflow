@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% block content %}
+
+<main>
+  <div class="bg-dark">
+    <div class="search-section">
+      <div class="search-box">
+        <input
+          type="text"
+          id="movies-search"
+          class="search"
+          placeholder="Search movies..."
+        />
+        <button class="search-symbol" id="movies-search-btn">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+        <div class="search-results-box">
+          <div class="search-results">
+            <div class="shadow" id="results-list">
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="movies-body">
+      <div class="movies-nav">
+        <div class="d-flex">
+          <div id="popular-nav" class="movies-link popular active">Popular</div>
+          <div id="latest-nav" class="movies-link name">Latest</div>
+          <div id="top-nav" class="movies-link top-rated">Top Rated</div>
+          <div id="upcoming-nav" class="movies-link upcoming">Upcoming</div>
+        </div>
+      </div>
+      <div class="movies-content">
+        <div class="d-flex" id="movies-container">
+        </div>
+        <div class="text-center">
+          <button class="load-more">Load More <i class="fas fa-arrow-down"></i></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
