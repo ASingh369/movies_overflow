@@ -1,4 +1,6 @@
 {% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +28,9 @@
 <body>
   <!--Header-->
   {% include 'partials/_header.html' %}
+
+  <a href="{% provider_login_url "facebook" method="js_sdk" %}">Facebook Connect</a> {{user}}
+  <a href="{% provider_login_url "google" %}">Google Connect</a> {{user}}
 
   <!-- Main Content -->
   {% block content %} {% endblock %}
