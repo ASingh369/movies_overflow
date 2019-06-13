@@ -59,7 +59,7 @@ function showDropdown(e){
     if (results != undefined){
       results.forEach(function(result){
         const a = document.createElement('a');
-        a.href = "movie.html";
+        a.href = `movie/${result.id}`;
         
         const div = document.createElement('div');
         div.className = "result cursor-pointer";
@@ -177,7 +177,7 @@ function newMoviesList(movies){
       const movieCard = document.createElement("div");
       movieCard.className = "movie-card";
       movieCard.innerHTML = `
-      <a href="movie.html">
+      <a href="movie/${movie.id}">
       <div class="movie-poster">
       <img
       src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}" class="shadow"
@@ -207,7 +207,7 @@ function addMovies(movies){
       movieCard.className = "movie-card";
       
       movieCard.innerHTML = `
-      <a href="movie.html">
+      <a href="movie/${movie.id}">
       <div class="movie-poster">
       <img
       src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}" class="shadow"

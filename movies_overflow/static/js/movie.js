@@ -10,11 +10,9 @@ const genreList = document.getElementById("genre-list");
 const crewList = document.getElementById("crew-list");
 const castList = document.getElementById("cast-list");
 
-// set movie id
-const movieID = 64690;
-
 // sample movie ids ==> 447404 8 9 126 339846 307081 118 64690 420817
 
+if (typeof movieID !== 'undefined'){
 // Make http call
 tmdb.getMovie(movieID).then(data => {
   if (
@@ -220,3 +218,4 @@ tmdb.getMovie(movieID).then(data => {
     }
   }
 });
+}
