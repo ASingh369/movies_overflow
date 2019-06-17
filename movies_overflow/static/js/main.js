@@ -139,3 +139,8 @@ function rightCursor() {
     castList.scrollLeft = beforeScroll;
   }
 }
+
+
+setTimeout(function(){
+  $('#message').fadeOut('slow');
+}, 3000);

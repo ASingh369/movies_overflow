@@ -24,6 +24,9 @@ body {
 .cursor-pointer {
   cursor: pointer; }
 
+.modal {
+  display: none; }
+
 .shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
 
@@ -465,6 +468,43 @@ header {
             -ms-transition: all 0.25s ease-out; }
             .movie-info .reviews .reviews-body .review .review-details a:hover {
               color: #23b1ec; }
+
+#sign-in, #sign-up {
+  padding: 0 1rem; }
+  #sign-in h3, #sign-up h3 {
+    text-align: center;
+    font-weight: 300; }
+  #sign-in .facebook-btn, #sign-up .facebook-btn {
+    text-align: center; }
+    #sign-in .facebook-btn a:focus, #sign-up .facebook-btn a:focus {
+      outline: none; }
+    #sign-in .facebook-btn img, #sign-up .facebook-btn img {
+      width: 16rem;
+      cursor: pointer; }
+  #sign-in .log-in, #sign-up .log-in {
+    margin-top: 1rem;
+    border-radius: 6px; }
+    #sign-in .log-in input, #sign-up .log-in input {
+      display: block;
+      width: 100%;
+      margin-bottom: 0.6rem;
+      padding: 0.8rem;
+      border-radius: 6px;
+      border: 1px solid #e5eff6;
+      background-color: #f5f5f5; }
+  #sign-in .log-in-btn, #sign-up .log-in-btn {
+    text-align: center;
+    margin-top: 1rem; }
+    #sign-in .log-in-btn .btn, #sign-up .log-in-btn .btn {
+      cursor: pointer;
+      padding: 0.5rem 1.5rem; }
+  #sign-in p, #sign-up p {
+    text-align: center;
+    font-size: 0.95rem; }
+    #sign-in p a, #sign-up p a {
+      color: #23b1ec;
+      text-decoration: none;
+      font-weight: bold; }
 
 .home {
   height: 100vh; }

@@ -23,12 +23,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pages.apps.PagesConfig',
+    'c_accounts.apps.CAccountsConfig',
 
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -129,6 +129,18 @@ AUTHENTICATION_BACKENDS = (
 SITE_ID=1
 
 LOGIN_REDIRECT_URL = '/'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'facebook': {
+        'SCOPE': ['email', 'public_profile', 'user_friends'],
+    }
+}
+
+# Messages
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger'
+}
 
 try:
     from .local_settings import *

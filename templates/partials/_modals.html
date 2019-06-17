@@ -1,0 +1,53 @@
+{% load socialaccount %}
+{% providers_media_js %}
+
+  <!-- <a href="{% provider_login_url "facebook" method="js_sdk" %}">Facebook Connect</a> {{user}} -->
+
+
+<!-- Sign In modal -->
+<div id="sign-in" class="modal">
+  <h3>
+    Login to your account
+  </h3>
+  <div class="facebook-btn">
+    <a href="{% provider_login_url "facebook" method="js_sdk" %}">
+      <img src="https://scontent.fyvr4-1.fna.fbcdn.net/v/t39.2365-6/17639236_1785253958471956_282550797298827264_n.png?_nc_cat=105&_nc_ht=scontent.fyvr4-1.fna&oh=e3ad45ea46143601c3857f4e32e5e47f&oe=5D7976EA" alt="Continue with Facebook">
+    </a>
+  </div>
+  <form action="{% url 'clogin' %}" method="POST">
+    {% csrf_token %}
+    <div class="log-in">
+        <input type="email" placeholder="Email" name="email" required>
+        <input type="password" placeholder="Password" name="password" required>
+    </div>
+    <div class="log-in-btn">
+      <button class="btn" type="submit">Sign In</button>
+    </div>
+  </form>
+  <p>New to Movies Overflow? <a href="#" onclick="$.featherlight.close()" data-featherlight="#sign-up">Sign up!</a></p>
+</div>
+
+<!-- Sign Up modal -->
+<div id="sign-up" class="modal">
+  <h3>
+    Create an account
+  </h3>
+  <div class="facebook-btn">
+      <a href="{% provider_login_url "facebook" method="js_sdk" %}">
+          <img src="https://scontent.fyvr4-1.fna.fbcdn.net/v/t39.2365-6/17639236_1785253958471956_282550797298827264_n.png?_nc_cat=105&_nc_ht=scontent.fyvr4-1.fna&oh=e3ad45ea46143601c3857f4e32e5e47f&oe=5D7976EA" alt="Continue with Facebook">
+      </a>
+  </div>
+  <form action="{% url 'cregister' %}" method="POST">
+    {% csrf_token %}
+    <div class="log-in">
+        <input type="text" placeholder="Username" name="username" required>
+        <input type="email" placeholder="Email" name="email" required>
+        <input type="password" placeholder="Password" name="password" required>
+        <input type="password" placeholder="Confirm Password" name="password2" required>
+    </div>
+    <div class="log-in-btn">
+      <button class="btn" type="submit">Signup</button>
+    </div>
+  </form>
+  <p>Already have an account? <a href="#" onclick="$.featherlight.close()" data-featherlight="#sign-in">Sign in</a></p>
+</div>
