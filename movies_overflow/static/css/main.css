@@ -189,7 +189,6 @@ header {
   padding-top: 74px; }
 
 .dark-overlay {
-  height: 100%;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.58); }
 
@@ -401,7 +400,7 @@ header {
       .movie-info .cast-section .actor-card .actor-overlay {
         color: #fff;
         background-color: rgba(0, 0, 0, 0.6);
-        height: 100%;
+        min-height: 268px;
         border-radius: 18px;
         box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.7); }
         .movie-info .cast-section .actor-card .actor-overlay h3 {
@@ -505,6 +504,18 @@ header {
       color: #23b1ec;
       text-decoration: none;
       font-weight: bold; }
+
+.alert {
+  padding: 1rem 0;
+  border: 1px solid #e5eff6;
+  border-radius: 3px;
+  text-align: center; }
+
+.alert-success {
+  color: #38f9d7; }
+
+.alert-danger {
+  color: red; }
 
 .home {
   height: 100vh; }
