@@ -1,15 +1,17 @@
 {% if messages %}
     {% for message in messages %}
-        <div id="message" class="container">
-            <div class="alert alert-{{ message.tags }}" roll="alert">
-                <strong>
-                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <div id="message" class="alert-container">
+            <div class="alert" roll="alert">
+                <div class="alert-{{message.tags}}">
+                    <strong>
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
                         Error:
-                    {% else %}
+                        {% else %}
                         {{ message.tags|title }}:
-                    {% endif %}
-                    {{ message }}
-                </strong>
+                        {% endif %}
+                        {{ message }}
+                    </strong>
+                </div>
             </div>
         </div>
     {% endfor %}

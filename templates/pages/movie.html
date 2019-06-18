@@ -25,36 +25,41 @@
             </p>
             <h3>Average Grade: <span class="grade">S</span></h3>
           </div>
-          <div class="grade-movie">
+          <div class="grade-movie" id="grade-container">
             <h3>Grade this movie</h3>
-            <div class="grade-box s">
+            <form action="{% url 'grade_movie' %}" method="POST" id="grade-form">
+              {% csrf_token %}
+              <input type="hidden" value="{{ movie_id }}" name="movie_id">
+              <input type="hidden" value="" name="grade" id="grade">
+            <div class="grade-box s" id="s">
               <div class="grade-letter">S</div>
               <div class="width-animation"></div>
             </div>
-            <div class="grade-box a">
+            <div class="grade-box a" id="a">
               <div class="grade-letter">A</div>
               <div class="width-animation"></div>
             </div>
-            <div class="grade-box b">
+            <div class="grade-box b" id="b">
               <div class="grade-letter">B</div>
               <div class="width-animation"></div>
             </div>
-            <div class="grade-box c">
+            <div class="grade-box c" id="c">
               <div class="grade-letter">C</div>
               <div class="width-animation"></div>
             </div>
-            <div class="grade-box d">
+            <div class="grade-box d" id="d">
               <div class="grade-letter">D</div>
               <div class="width-animation"></div>
             </div>
-            <div class="grade-box e">
+            <div class="grade-box e" id="e">
               <div class="grade-letter">E</div>
               <div class="width-animation"></div>
             </div>
-            <div class="grade-box f">
+            <div class="grade-box f" id="f">
               <div class="grade-letter">F</div>
               <div class="width-animation"></div>
             </div>
+            </form>
           </div>
         </div>
       </div>

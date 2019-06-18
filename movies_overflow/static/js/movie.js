@@ -9,6 +9,9 @@ const releaseDate = document.getElementById("release-date");
 const genreList = document.getElementById("genre-list");
 const crewList = document.getElementById("crew-list");
 const castList = document.getElementById("cast-list");
+const gradeForm = document.getElementById("grade-form");
+const grade = document.getElementById("grade");
+const gradeContainer = document.getElementById("grade-container");
 
 // sample movie ids ==> 447404 8 9 126 339846 307081 118 64690 420817
 
@@ -218,4 +221,39 @@ tmdb.getMovie(movieID).then(data => {
     }
   }
 });
+}
+
+// Change users movie grade
+if (gradeContainer != null){
+  gradeContainer.addEventListener('click', submitGradeForm);
+}
+
+function submitGradeForm(e){
+  g = e.target.parentElement.id;
+  if (g == 's' || g == 'a' || g == 'b' || g == 'c' || g == 'd' || g == 'e' || g == 'f'){
+    switch (g){
+      case 's':
+        grade.value = 7;
+        break;
+      case 'a':
+        grade.value = 6;
+        break;
+      case 'b':
+        grade.value = 5;
+        break;
+      case 'c':
+        grade.value = 4;
+        break;
+      case 'd':
+        grade.value = 3;
+        break;
+      case 'e':
+        grade.value = 2;
+        break;
+      case 'f':
+        grade.value = 1;
+        break;
+    }
+    gradeForm.submit();
+  }
 }

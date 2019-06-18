@@ -40,18 +40,23 @@ def clogin(request):
         email = request.POST['email']
         password = request.POST['password']
 
-        requestedUser = User.objects.get(email=email)
+        requestedUsers = User.objects.filter(email=email)
 
-        user = auth.authenticate(username=requestedUser.username, password=password)
+        if requestedUsers:
+            requestedUser = User.objects.get(email=email)
 
-        if user is not None:
-            auth.login(request, user)
-            messages.success(request, 'You are now logged in')
-            return redirect('index')
+            user = auth.authenticate(username=requestedUser.username, password=password)
+
+            if user is not None:
+                auth.login(request, user)
+                messages.success(request, 'You are now logged in')
+                return redirect('index')
+            else:
+                messages.error(request, 'Invalid credentials')
+                return redirect('index')
         else:
             messages.error(request, 'Invalid credentials')
             return redirect('index')
-
     else:
         return redirect('index')
 

@@ -7,4 +7,5 @@ urlpatterns = [
     path('profile', views.profile, name='profile'),
     path('movies', views.movies, name='movies'),
     path('movie/<int:movie_id>', views.movie, name='movie'),
+    path('grade_movie', views.grade_movie, name='grade_movie'),
 ]
