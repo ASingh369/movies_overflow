@@ -400,7 +400,7 @@ header {
       .movie-info .cast-section .actor-card .actor-overlay {
         color: #fff;
         background-color: rgba(0, 0, 0, 0.6);
-        min-height: 268px;
+        height: 268px;
         border-radius: 18px;
         box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.7); }
         .movie-info .cast-section .actor-card .actor-overlay h3 {

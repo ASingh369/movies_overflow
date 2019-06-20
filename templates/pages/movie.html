@@ -33,31 +33,31 @@
               <input type="hidden" value="" name="grade" id="grade">
             <div class="grade-box s" id="s">
               <div class="grade-letter">S</div>
-              <div class="width-animation"></div>
+              <div class="width-animation {% if grade == 7 %} active {% endif %}"></div>
             </div>
             <div class="grade-box a" id="a">
               <div class="grade-letter">A</div>
-              <div class="width-animation"></div>
+              <div class="width-animation {% if grade == 6 %} active {% endif %}"></div>
             </div>
             <div class="grade-box b" id="b">
               <div class="grade-letter">B</div>
-              <div class="width-animation"></div>
+              <div class="width-animation {% if grade == 5 %} active {% endif %}"></div>
             </div>
             <div class="grade-box c" id="c">
               <div class="grade-letter">C</div>
-              <div class="width-animation"></div>
+              <div class="width-animation {% if grade == 4 %} active {% endif %}"></div>
             </div>
             <div class="grade-box d" id="d">
               <div class="grade-letter">D</div>
-              <div class="width-animation"></div>
+              <div class="width-animation {% if grade == 3 %} active {% endif %}"></div>
             </div>
             <div class="grade-box e" id="e">
               <div class="grade-letter">E</div>
-              <div class="width-animation"></div>
+              <div class="width-animation {% if grade == 2 %} active {% endif %}"></div>
             </div>
             <div class="grade-box f" id="f">
               <div class="grade-letter">F</div>
-              <div class="width-animation"></div>
+              <div class="width-animation {% if grade == 1 %} active {% endif %}"></div>
             </div>
             </form>
           </div>

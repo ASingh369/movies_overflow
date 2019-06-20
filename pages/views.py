@@ -9,8 +9,14 @@ def movies(request):
   return render(request, 'pages/movies.html')
 
 def movie(request, movie_id):
+  grade = ""
+  grades = Grade.objects.filter(user=request.user, movie_id=movie_id)
+  if grades:
+    grade = Grade.objects.get(user=request.user, movie_id=movie_id).grade
+
   context = {
-    'movie_id': movie_id
+    'movie_id': movie_id,
+    'grade': grade
   }
   return render(request, 'pages/movie.html', context)
 
@@ -33,6 +39,12 @@ def grade_movie(request):
   else:
     messages.error(request, 'You need to be logged in to grade a movie')
 
+  return redirect('movie', movie_id)
+
+def add_to_top10(request):
+  if request.method == 'POST':
+      movie_id = request.POST['movie_id']
+      messages.success(request, 'Got it')
   return redirect('movie', movie_id)
 
 def profile(request):
