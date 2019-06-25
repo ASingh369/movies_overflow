@@ -354,8 +354,13 @@ header {
       .movie-info .details .full-details .date-released,
       .movie-info .details .full-details .runtime {
         margin: 1rem 0; }
-      .movie-info .details .full-details a {
-        margin-top: 1rem; }
+      .movie-info .details .full-details form {
+        display: inline; }
+      .movie-info .details .full-details a, .movie-info .details .full-details button {
+        margin-top: 1rem;
+        font-size: 1rem;
+        line-height: 1.7rem;
+        font-weight: 400; }
   .movie-info .cast-section {
     padding: 3rem 0; }
     .movie-info .cast-section .cast {

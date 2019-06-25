@@ -13,3 +13,8 @@ class Top10(models.Model):
   movie_id = models.IntegerField(default=0)
   rank = models.IntegerField(default=0)
   time = models.DateTimeField(default=datetime.now, blank=True)
+
+class Follow(models.Model):
+  user = models.ForeignKey(User, related_name="user", on_delete=models.DO_NOTHING)  
+  follower = models.ForeignKey(User, related_name="follower", on_delete=models.DO_NOTHING) 
+  time = models.DateTimeField(default=datetime.now, blank=True)

@@ -92,12 +92,16 @@
               <i class="far fa-clock"></i>
               <span id="release-date"> February 2, 2010</span>
             </h5>
-            <a href="" class="btn"
-              ><i class="far fa-bookmark"></i> Want to see</a
-            >
-            <a href="" class="btn"
-              ><i class="far fa-star"></i> Add to Top 10</a
-            >
+            <form action="" method="POST">
+              {% csrf_token %}
+              <input type="hidden" name="movie_id" value="{{ movie_id }}">
+              <button type="submit" class="btn cursor-pointer"><i class="far fa-bookmark"></i> Want to see</button>
+            </form>
+            <form action="{% url 'add_to_top10' %}" method="POST">
+              {% csrf_token %}
+              <input type="hidden" name="movie_id" value="{{ movie_id }}">
+              <button type="submit" class="btn cursor-pointer"><i class="far fa-star"></i> Add to Top 10</button>
+            </form>
           </div>
         </div>
         <div class="cast-section">
