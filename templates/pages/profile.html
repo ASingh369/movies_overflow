@@ -1,33 +1,45 @@
 {% extends 'base.html' %} {% block content %}
+
+<script>
+  var profile_user_id = "{{ profile_user.id }}";
+</script>
+
 <main class="profile">
   <div class="dummy"></div>
   <div class="profile-body">
     <div class="landing-movie-img">
-      <img src="https://image.tmdb.org/t/p/w1280/2qR5pJEMumBCKPxFrfx7RU25oVk.jpg" alt="">
+      <img src="https://image.tmdb.org/t/p/w1280/2qR5pJEMumBCKPxFrfx7RU25oVk.jpg" id="profile-bg" alt="">
     </div>
 
+    
     <div class="user-info">
       <div class="container">
         <div class="stats">
           <div class="fullname">
-            <div>Amrit Pal Singh</div>
+            <div>
+              {% if not profile_user.first_name == "" %}
+              {{ profile_user.first_name }} {{ profile_user.last_name }}
+              {% else %}
+              {{ profile_user.username }}
+              {% endif %}
+            </div>
           </div>
           <div class="d-flex">
             <div class="followers">
               <div class="count">
-                100
+                {{ followers }}
               </div>
               <div class="subheading">Followers</div>
             </div>
             <div class="following">
               <div class="count">
-                200
+                {{ following }}
               </div>
               <div class="subheading">Following</div>
             </div>
             <div class="graded-count">
               <div class="count">
-                20
+                {{ movies_graded }}
               </div>
               <div class="subheading">Movies Graded</div>
             </div>
@@ -41,7 +53,7 @@
             <button class="top active">Top 10 Movies</button>
             <button class="all">All Movies</button>
           </div>
-          <div class="d-flex">
+          <div class="d-flex" id="profile-movies">
             <div class="movie-card-padding">
               <div class="top-movie-card" style="background-image: url('https://image.tmdb.org/t/p/w1280/2qR5pJEMumBCKPxFrfx7RU25oVk.jpg');">
                 <div class="movie-card-overlay bg-1">

@@ -32,7 +32,7 @@
         >
       </li>
       <li class="nav-link">
-        <a href="{% url 'profile' %}" class="{% if 'profile' in request.path %} active {% endif %}"
+        <a href="{% url 'profile' request.user.id %}" class="{% if 'profile' in request.path %} active {% endif %}"
           ><i class="fas fa-user-circle nav-icon"></i>
           <span class="nav-item"> Profile</span></a
         >

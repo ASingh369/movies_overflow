@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect
-from .models import Grade, Top10
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.models import User
+from .models import Grade, Top10, Follow
 from django.contrib import messages, auth
+from django.http import JsonResponse
 
 def index(request):
   return render(request, 'pages/index.html')
@@ -73,11 +75,32 @@ def add_to_top10(request):
       else:
         # movie already in your top 10 list
         messages.success(request, 'Movie already exists in your top 10 list')
-
-        
-
-
   return redirect('movie', movie_id)
 
-def profile(request):
-  return render(request, 'pages/profile.html')
+def get_top10_movies(request, user_id):
+  """
+    returns Json response of user's top 10 movies
+  """
+
+  data = list(Top10.objects.filter(user__id=user_id).values())
+  return JsonResponse(data, safe=False)
+
+
+def profile(request, user_id):
+
+  profile_user = get_object_or_404(User, id=user_id)
+
+  followers = Follow.objects.filter(user=profile_user).count()
+  following = Follow.objects.filter(follower=profile_user).count()
+  movies_graded = Grade.objects.filter(user=profile_user).count()
+
+  top10_movies = Top10.objects.filter(user=profile_user)
+
+  context = {
+    'profile_user': profile_user,
+    'followers': followers,
+    'following': following,
+    'movies_graded': movies_graded,
+    'top10_movies': top10_movies
+  }
+  return render(request, 'pages/profile.html', context)
