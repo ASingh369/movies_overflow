@@ -669,6 +669,43 @@ header {
               background-color: #fff;
               color: #23b1ec; }
 
+#top10-modal .heading {
+  font-size: 2rem;
+  font-weight: 300;
+  padding-bottom: 1rem;
+  color: #25262a;
+  text-align: center; }
+
+#top10-modal .list {
+  width: 60vw; }
+  #top10-modal .list > .d-flex {
+    border-bottom: 1px solid #25262a;
+    padding: 0.5rem; }
+    #top10-modal .list > .d-flex .rank {
+      padding: 0.6rem 1rem; }
+    #top10-modal .list > .d-flex .name {
+      width: 75%;
+      padding: 0.6rem 1rem;
+      margin-left: 0.6rem; }
+    #top10-modal .list > .d-flex .buttons {
+      flex: auto;
+      margin-left: 0.6rem;
+      padding: 0.5rem 0.5rem 0.5rem 0rem;
+      font-weight: bold !important;
+      font-size: 1.1rem; }
+      #top10-modal .list > .d-flex .buttons .edit {
+        flex: auto; }
+        #top10-modal .list > .d-flex .buttons .edit div {
+          color: #23b1ec;
+          cursor: pointer;
+          flex: 1;
+          text-align: center; }
+      #top10-modal .list > .d-flex .buttons .delete-box {
+        margin-left: auto;
+        border-left: 1px solid #25262a;
+        padding-left: 0.6rem;
+        color: red; }
+
 .profile .dummy {
   position: fixed;
   height: 100vh;
@@ -691,7 +728,7 @@ header {
     width: 100%; }
     .profile .profile-body .user-info .container .stats {
       padding-top: 3rem;
-      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9) 75%); }
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.82) 75%); }
       .profile .profile-body .user-info .container .stats .fullname {
         text-align: center;
         padding-bottom: 1rem;
@@ -716,7 +753,12 @@ header {
           font-size: 1.3rem;
           cursor: pointer; }
     .profile .profile-body .user-info .container .body {
-      background-color: rgba(0, 0, 0, 0.9); }
+      background-color: rgba(0, 0, 0, 0.82); }
+      .profile .profile-body .user-info .container .body .edit {
+        padding-left: 2.3rem; }
+        .profile .profile-body .user-info .container .body .edit span {
+          cursor: pointer;
+          color: #ccc; }
       .profile .profile-body .user-info .container .body .switch-btns {
         text-align: center;
         padding: 2rem 0; }
@@ -1047,7 +1089,11 @@ header {
   .home .container > .d-flex .sidebar {
     margin: 0; }
   .profile .profile-body .user-info .body > .d-flex {
-    padding: 2rem 1rem !important; } }
+    padding: 2rem 1rem !important; }
+  #top10-modal .list {
+    width: 80vw; }
+    #top10-modal .list > .d-flex .name {
+      width: 80%; } }
 
 @media (max-width: 850px) {
   .movies-content .movie-card {
@@ -1133,7 +1179,9 @@ header {
   .profile .profile-body .user-info .body > .d-flex {
     padding: 2rem 4rem !important; }
   .profile .profile-body .user-info .body .movie-card-padding {
-    width: 100% !important; } }
+    width: 100% !important; }
+  #top10-modal .list > .d-flex .name {
+    width: 75%; } }
 
 @media (max-width: 700px) {
   .container {
@@ -1237,7 +1285,17 @@ header {
   .movies-body .movies-nav {
     font-size: 0.8rem; }
   .home .container {
-    padding: 0; } }
+    padding: 0; }
+  #top10-modal .list {
+    width: 95vw; }
+    #top10-modal .list > .d-flex {
+      padding: 0rem;
+      border: none; }
+      #top10-modal .list > .d-flex .name {
+        width: 65%;
+        margin-left: 0.2rem; }
+      #top10-modal .list > .d-flex .buttons {
+        margin-left: 0.2rem; } }
 
 @media (max-width: 650px) {
   .movies-content .movie-card {

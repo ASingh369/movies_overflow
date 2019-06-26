@@ -4,6 +4,41 @@
   var profile_user_id = "{{ profile_user.id }}";
 </script>
 
+<!-- Edit Top 10 Movies Modal -->
+<div id="top10-modal" class="modal">
+    <div class="heading">Edit Your Top 10 Movies</div>
+    <div class="list" id="edit-list">
+      <div class="d-flex">
+        <div class="rank">1</div>
+        <div class="name">Donnie Darko</div>
+        <div class="buttons d-flex">
+          <div class="edit d-flex">
+            <div class="move-up"><i class="fas fa-sort-numeric-up"></i></div>
+            <div class="move-down"><i class="fas fa-sort-numeric-down"></i></div>
+          </div>
+          <div class="delete-box">
+            <span class="delete"><i class="far fa-trash-alt"></i></span>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex">
+        <div class="rank">1</div>
+        <div class="name">Donnie Darko</div>
+        <div class="buttons d-flex">
+          <div class="edit d-flex">
+            <div class="move-up"><i class="fas fa-sort-numeric-up"></i></div>
+            <div class="move-down"><i class="fas fa-sort-numeric-down"></i></div>
+          </div>
+          <div class="delete-box">
+            <span class="delete"><i class="far fa-trash-alt"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
 <main class="profile">
   <div class="dummy"></div>
   <div class="profile-body">
@@ -53,6 +88,7 @@
             <button class="top active">Top 10 Movies</button>
             <button class="all">All Movies</button>
           </div>
+          <div class="edit"><span id="edit-list-btn" data-featherlight="#top10-modal"><i class="fas fa-cog"></i> Edit List</span> </div>
           <div class="d-flex" id="profile-movies">
             <div class="movie-card-padding">
               <div class="top-movie-card" style="background-image: url('https://image.tmdb.org/t/p/w1280/2qR5pJEMumBCKPxFrfx7RU25oVk.jpg');">
@@ -72,168 +108,7 @@
                 </div>
               </div>
             </div>
-            <div class="movie-card-padding">
-              <div class="top-movie-card" style="background-image: url('https://image.tmdb.org/t/p/w1280/phxiKFDvPeQj4AbkvJLmuZEieDU.jpg');">
-                <div class="movie-card-overlay bg-2">
-                  <div class="d-flex">
-                    <div class="poster">
-                      <img class="shadow" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/hjC00Wus7IoCywVTHt68W8QxcyW.jpg" alt="">
-                    </div>
-                    <div class="details">
-                      <div class="name">Triangle (2009)</div>
-                      <div class="view-details"><a href="movie.html">View Details <i class="fas fa-long-arrow-alt-right"></i></a> </div>
-                    </div>
-                    <div class="rank">
-                      02
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="movie-card-padding">
-              <div class="top-movie-card" style="background-image: url('https://image.tmdb.org/t/p/w1280/phxiKFDvPeQj4AbkvJLmuZEieDU.jpg');">
-                <div class="movie-card-overlay bg-3">
-                  <div class="d-flex">
-                    <div class="poster">
-                      <img class="shadow" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/tGLO9zw5ZtCeyyEWgbYGgsFxC6i.jpg" alt="">
-                    </div>
-                    <div class="details">
-                      <div class="name">The Departed (2006)</div>
-                      <div class="view-details"><a href="movie.html">View Details <i class="fas fa-long-arrow-alt-right"></i></a> </div>
-                    </div>
-                    <div class="rank">
-                      03
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="movie-card-padding">
-              <div class="top-movie-card" style="background-image: url('https://image.tmdb.org/t/p/w1280/phxiKFDvPeQj4AbkvJLmuZEieDU.jpg');">
-                <div class="movie-card-overlay bg-4">
-                  <div class="d-flex">
-                    <div class="poster">
-                      <img class="shadow" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/8OIsK5Mlkieeqf5ejZOKFiyH5mM.jpg" alt="">
-                    </div>
-                    <div class="details">
-                      <div class="name">Coherence (2013)</div>
-                      <div class="view-details"><a href="movie.html">View Details <i class="fas fa-long-arrow-alt-right"></i></a> </div>
-                    </div>
-                    <div class="rank">
-                      04
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="movie-card-padding">
-              <div class="top-movie-card" style="background-image: url('https://image.tmdb.org/t/p/w1280/phxiKFDvPeQj4AbkvJLmuZEieDU.jpg');">
-                <div class="movie-card-overlay bg-5">
-                  <div class="d-flex">
-                    <div class="poster">
-                      <img class="shadow" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/66A9MqXOyVFCssoloscw79z8Tew.jpg" alt="">
-                    </div>
-                    <div class="details">
-                      <div class="name">3 Idiots (2009)</div>
-                      <div class="view-details"><a href="movie.html">View Details <i class="fas fa-long-arrow-alt-right"></i></a> </div>
-                    </div>
-                    <div class="rank">
-                      05
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="movie-card-padding">
-              <div class="top-movie-card" style="background-image: url('https://image.tmdb.org/t/p/w1280/phxiKFDvPeQj4AbkvJLmuZEieDU.jpg');">
-                <div class="movie-card-overlay bg-6">
-                  <div class="d-flex">
-                    <div class="poster">
-                      <img class="shadow" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/nmb4QhCRmdfNP6rgb81yUFgI83l.jpg" alt="">
-                    </div>
-                    <div class="details">
-                      <div class="name">Donnie Darko (2001)</div>
-                      <div class="view-details"><a href="movie.html">View Details <i class="fas fa-long-arrow-alt-right"></i></a> </div>
-                    </div>
-                    <div class="rank">
-                      06
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="movie-card-padding">
-              <div class="top-movie-card" style="background-image: url('https://image.tmdb.org/t/p/w1280/phxiKFDvPeQj4AbkvJLmuZEieDU.jpg');">
-                <div class="movie-card-overlay bg-7">
-                  <div class="d-flex">
-                    <div class="poster">
-                      <img class="shadow" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/8oPY6ULFOTbAEskySNhgsUIN4fW.jpg" alt="">
-                    </div>
-                    <div class="details">
-                      <div class="name">Nightcrawler (2014)</div>
-                      <div class="view-details"><a href="movie.html">View Details <i class="fas fa-long-arrow-alt-right"></i></a> </div>
-                    </div>
-                    <div class="rank">
-                      07
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="movie-card-padding">
-              <div class="top-movie-card" style="background-image: url('https://image.tmdb.org/t/p/w1280/phxiKFDvPeQj4AbkvJLmuZEieDU.jpg');">
-                <div class="movie-card-overlay bg-8">
-                  <div class="d-flex">
-                    <div class="poster">
-                      <img class="shadow" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/6yf5tQgzbLj1HomN6vGqfBggpx9.jpg" alt="">
-                    </div>
-                    <div class="details">
-                      <div class="name">Nocturnal Animals (2016)</div>
-                      <div class="view-details"><a href="movie.html">View Details <i class="fas fa-long-arrow-alt-right"></i></a> </div>
-                    </div>
-                    <div class="rank">
-                      08
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="movie-card-padding">
-              <div class="top-movie-card" style="background-image: url('https://image.tmdb.org/t/p/w1280/phxiKFDvPeQj4AbkvJLmuZEieDU.jpg');">
-                <div class="movie-card-overlay bg-9">
-                  <div class="d-flex">
-                    <div class="poster">
-                      <img class="shadow" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/jq8LjngZ7XZEQge5JFTdOGMrHyZ.jpg" alt="">
-                    </div>
-                    <div class="details">
-                      <div class="name">Good Will Hunting (1997)</div>
-                      <div class="view-details"><a href="movie.html">View Details <i class="fas fa-long-arrow-alt-right"></i></a> </div>
-                    </div>
-                    <div class="rank">
-                      09
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="movie-card-padding">
-              <div class="top-movie-card" style="background-image: url('https://image.tmdb.org/t/p/w1280/phxiKFDvPeQj4AbkvJLmuZEieDU.jpg');">
-                <div class="movie-card-overlay bg-10">
-                  <div class="d-flex">
-                    <div class="poster">
-                      <img class="shadow" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/vK1o5rZGqxyovfIhZyMELhk03wO.jpg" alt="">
-                    </div>
-                    <div class="details">
-                      <div class="name">The Wolf of Wall Street (2013)</div>
-                      <div class="view-details"><a href="movie.html">View Details <i class="fas fa-long-arrow-alt-right"></i></a> </div>
-                    </div>
-                    <div class="rank">
-                      10
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>
