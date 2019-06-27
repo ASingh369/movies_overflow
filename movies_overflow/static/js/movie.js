@@ -233,25 +233,25 @@ function submitGradeForm(e){
   if (g == 's' || g == 'a' || g == 'b' || g == 'c' || g == 'd' || g == 'e' || g == 'f'){
     switch (g){
       case 's':
-        grade.value = 7;
-        break;
-      case 'a':
         grade.value = 6;
         break;
-      case 'b':
+      case 'a':
         grade.value = 5;
         break;
-      case 'c':
+      case 'b':
         grade.value = 4;
         break;
-      case 'd':
+      case 'c':
         grade.value = 3;
         break;
-      case 'e':
+      case 'd':
         grade.value = 2;
         break;
-      case 'f':
+      case 'e':
         grade.value = 1;
+        break;
+      case 'f':
+        grade.value = 0;
         break;
     }
     gradeForm.submit();

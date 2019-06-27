@@ -132,6 +132,20 @@ def move_down_top10(request, rank, user_id):
   data = list(Top10.objects.filter(user__id=user_id).values())
   return JsonResponse(data, safe=False)
 
+def get_graded_movies(request, user_id, grade):
+  """
+    Get user's list of graded movies of given grade
+  """
+  data = list(Grade.objects.filter(user__id=user_id, grade=grade).values())
+  return JsonResponse(data, safe=False)
+
+def get_all_graded_movies(request, user_id):
+  """
+    Get list of all movies graded by user
+  """
+  data = list(Grade.objects.filter(user__id=user_id).values())
+  return JsonResponse(data, safe=False)
+
 def profile(request, user_id):
 
   profile_user = get_object_or_404(User, id=user_id)
@@ -147,6 +161,15 @@ def profile(request, user_id):
     'followers': followers,
     'following': following,
     'movies_graded': movies_graded,
-    'top10_movies': top10_movies
+    'top10_movies': top10_movies,
   }
   return render(request, 'pages/profile.html', context)
+
+
+def follow_user(request):
+  if request.method == "POST":
+    profile_id = request.POST["profile_id"]
+    print(profile_id)
+
+  return redirect('profile', profile_id)
+  

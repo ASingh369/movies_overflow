@@ -1014,7 +1014,7 @@ header {
       width: 90%;
       margin: auto; }
 
-.load-more {
+.load-more, .profile-load-more {
   background: none;
   border: 1px solid #23b1ec;
   color: #23b1ec;
@@ -1024,11 +1024,14 @@ header {
   -webkit-transition: all 0.25s ease-out;
   -moz-transition: all 0.25s ease-out;
   -ms-transition: all 0.25s ease-out; }
-  .load-more i {
+  .load-more i, .profile-load-more i {
     margin-left: 0.5rem; }
-  .load-more:hover {
+  .load-more:hover, .profile-load-more:hover {
     background-color: #23b1ec;
     color: #fff; }
+  .load-more.profile-load-more, .profile-load-more.profile-load-more {
+    margin-bottom: 1.5rem;
+    display: none; }
 
 @media (max-width: 1300px) {
   .profile .profile-body .user-info .body > .d-flex {
