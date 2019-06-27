@@ -85,6 +85,52 @@ def get_top10_movies(request, user_id):
   data = list(Top10.objects.filter(user__id=user_id).values())
   return JsonResponse(data, safe=False)
 
+def delete_from_top10(request, rank, user_id):
+  """
+    delete movie from top 10 movies list
+  """
+  # Delete current rank and change higher ranks
+  Top10.objects.get(user__id=user_id, rank=rank).delete()
+
+  current_list = Top10.objects.filter(user__id=user_id, rank__gt=rank)
+  for item in current_list:
+    item.rank = item.rank - 1
+    item.save()
+
+  data = list(Top10.objects.filter(user__id=user_id).values())
+  return JsonResponse(data, safe=False)
+
+def move_up_top10(request, rank, user_id):
+  """
+    Improve user rank of given movie
+  """
+  if rank > 1:
+    lower = Top10.objects.get(user__id=user_id, rank=rank)
+    upper = Top10.objects.get(user__id=user_id, rank=rank-1)
+    lower.rank = lower.rank-1
+    upper.rank = upper.rank+1
+    lower.save()
+    upper.save()
+
+
+  data = list(Top10.objects.filter(user__id=user_id).values())
+  return JsonResponse(data, safe=False)
+
+def move_down_top10(request, rank, user_id):
+  """
+    Improve user rank of given movie
+  """
+  total_movies = Top10.objects.filter(user__id=user_id).count()
+  if rank < total_movies:
+    lower = Top10.objects.get(user__id=user_id, rank=rank+1)
+    upper = Top10.objects.get(user__id=user_id, rank=rank)
+    lower.rank = lower.rank-1
+    upper.rank = upper.rank+1
+    lower.save()
+    upper.save()
+
+  data = list(Top10.objects.filter(user__id=user_id).values())
+  return JsonResponse(data, safe=False)
 
 def profile(request, user_id):
 

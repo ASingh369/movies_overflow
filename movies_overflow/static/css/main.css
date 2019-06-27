@@ -705,6 +705,8 @@ header {
         border-left: 1px solid #25262a;
         padding-left: 0.6rem;
         color: red; }
+        #top10-modal .list > .d-flex .buttons .delete-box .delete {
+          cursor: pointer; }
 
 .profile .dummy {
   position: fixed;
@@ -1289,8 +1291,7 @@ header {
   #top10-modal .list {
     width: 95vw; }
     #top10-modal .list > .d-flex {
-      padding: 0rem;
-      border: none; }
+      padding: 0rem; }
       #top10-modal .list > .d-flex .name {
         width: 65%;
         margin-left: 0.2rem; }
