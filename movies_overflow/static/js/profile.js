@@ -12,12 +12,16 @@ var movies_list = []; // Top 10 movies array
 var all_movies_page = 0;
 var all_movies = []; // All movies received from server array
 
-if (typeof profile_user_id != undefined){
-  var profile_user_id = 1;
+if (top10Btn != null){
   top10Btn.addEventListener('click', top10BtnClicked);
   allBtn.addEventListener('click', allBtnClicked);
   profileLoadMore.addEventListener('click', loadMoreAllMovies);
-  followBtn.addEventListener('click', submitFollowForm);
+  if (followBtn != null){
+    followBtn.addEventListener('click', submitFollowForm);
+  }
+}
+else{
+  var profile_user_id = 1;
 }
 displayTop10();
 if (editListBtn != null){
@@ -228,6 +232,7 @@ function allBtnClicked(){
   }
 
   const xhr = new XMLHttpRequest();
+  console.log(profile_user_id);
   xhr.open('GET', `/get_all_graded_movies/${profile_user_id}`);
   xhr.send(null);
 
@@ -235,8 +240,8 @@ function allBtnClicked(){
     if (this.status === 200){
       all_movies = JSON.parse(this.responseText);
       all_movies_page = 1;
-      if (all_movies.length > 10){
-        for (var i = 0; i < 10; i++){
+      if (all_movies.length > 12){
+        for (var i = 0; i < 12; i++){
           add_movie_to_dom(all_movies[i]);
         }
         profileLoadMore.style.display = "inline";
@@ -301,9 +306,9 @@ function intToGrade(int){
 }
 
 function loadMoreAllMovies(){
-  let startIndex = all_movies_page*10;
-  if (all_movies.length - startIndex > 10){
-    for (let i = startIndex; i < startIndex+10; i++){
+  let startIndex = all_movies_page*12;
+  if (all_movies.length - startIndex > 12){
+    for (let i = startIndex; i < startIndex+12; i++){
       add_movie_to_dom(all_movies[i]);
     }
     all_movies_page++;

@@ -149,6 +149,7 @@ def get_all_graded_movies(request, user_id):
 def profile(request, user_id):
 
   profile_user = get_object_or_404(User, id=user_id)
+  already_follows = False
 
   followers = Follow.objects.filter(user=profile_user).count()
   following = Follow.objects.filter(follower=profile_user).count()
@@ -156,12 +157,16 @@ def profile(request, user_id):
 
   top10_movies = Top10.objects.filter(user=profile_user)
 
+  if profile_user == request.user or Follow.objects.filter(user=profile_user, follower=request.user):
+    already_follows = True
+
   context = {
     'profile_user': profile_user,
     'followers': followers,
     'following': following,
     'movies_graded': movies_graded,
     'top10_movies': top10_movies,
+    'already_follows': already_follows
   }
   return render(request, 'pages/profile.html', context)
 
@@ -169,7 +174,10 @@ def profile(request, user_id):
 def follow_user(request):
   if request.method == "POST":
     profile_id = request.POST["profile_id"]
-    print(profile_id)
+    profile_user = User.objects.get(id=profile_id)
+    follow = Follow(user=profile_user, follower=request.user)
+    follow.save()
+    messages.success(request, 'User followed successfully')
 
   return redirect('profile', profile_id)
   

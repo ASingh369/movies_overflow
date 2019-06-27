@@ -53,11 +53,15 @@
               <div class="subheading">Movies Graded</div>
             </div>
             <div class="follow">
-              <form action="{% url 'follow_user' %}" method="POST" id="follow-form">
-                {% csrf_token %}
-                <input type="hidden" name="profile_id" value="{{ profile_user.id }}">
-              </form>
-              <i class="fas fa-plus" id="follow-btn"></i>
+              {% if already_follows == False %}
+                <form action="{% url 'follow_user' %}" method="POST" id="follow-form">
+                  {% csrf_token %}
+                  <input type="hidden" name="profile_id" value="{{ profile_user.id }}">
+                </form>
+                <i class="fas fa-plus" id="follow-btn"></i>
+              {% else %}
+                <i class="fas fa-check"></i>
+              {% endif %}
             </div>
           </div>
         </div>
