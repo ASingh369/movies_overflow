@@ -18,3 +18,11 @@ class Follow(models.Model):
   user = models.ForeignKey(User, related_name="user", on_delete=models.DO_NOTHING)  
   follower = models.ForeignKey(User, related_name="follower", on_delete=models.DO_NOTHING) 
   time = models.DateTimeField(default=datetime.now, blank=True)
+
+class Post(models.Model):
+  user = models.ForeignKey(User, on_delete=models.DO_NOTHING)  
+  time = models.DateTimeField(default=datetime.now, blank=True)
+  text = models.TextField()
+  upvotes = models.IntegerField(default=0)
+  downvoter = models.IntegerField(default=0)
+  movie_bg = models.CharField(max_length=500)

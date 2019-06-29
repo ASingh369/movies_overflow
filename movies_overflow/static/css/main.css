@@ -669,6 +669,63 @@ header {
               background-color: #fff;
               color: #23b1ec; }
 
+#add-post {
+  background-color: #e5eff6;
+  padding: 1.5rem;
+  margin: 0 1.5rem 1.2rem 1.5rem; }
+  #add-post .sample-poster {
+    margin-bottom: 0.5rem; }
+    #add-post .sample-poster img {
+      width: 100%;
+      display: none; }
+  #add-post .post-text {
+    display: block;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #23b1ec; }
+    #add-post .post-text:focus {
+      outline: none; }
+  #add-post .add-poster {
+    position: relative;
+    display: inline-block; }
+    #add-post .add-poster .poster-inner {
+      position: absolute;
+      min-width: 150px;
+      max-height: 200px;
+      overflow: auto;
+      z-index: 1;
+      background-color: #fff; }
+      #add-post .add-poster .poster-inner a {
+        display: block;
+        padding: 0.2rem;
+        border-bottom: 1px solid #e5eff6;
+        text-decoration: none;
+        color: #25262a;
+        transition: all 0.25s ease-out;
+        -webkit-transition: all 0.25s ease-out;
+        -moz-transition: all 0.25s ease-out;
+        -ms-transition: all 0.25s ease-out; }
+        #add-post .add-poster .poster-inner a:hover {
+          background-color: #e5eff6; }
+        #add-post .add-poster .poster-inner a:focus {
+          background-color: #e5eff6; }
+    #add-post .add-poster .search-poster {
+      border: 1px solid #23b1ec;
+      padding: 0.4rem 0.2rem;
+      width: 150px;
+      font-size: 0.8rem; }
+      #add-post .add-poster .search-poster:focus {
+        outline: none; }
+    #add-post .add-poster .btn {
+      padding: 0.3rem 0.5rem; }
+  #add-post .post-btn {
+    margin-left: auto; }
+    #add-post .post-btn .btn {
+      cursor: pointer; }
+
 #top10-modal .heading {
   font-size: 2rem;
   font-weight: 300;
@@ -1103,6 +1160,8 @@ header {
 @media (max-width: 850px) {
   .movies-content .movie-card {
     width: 33.3%; }
+  #add-post {
+    margin: 0 1rem 1.2rem 1rem; }
   .home .container > .d-flex {
     flex-direction: column !important; }
     .home .container > .d-flex .feed {
@@ -1186,7 +1245,10 @@ header {
   .profile .profile-body .user-info .body .movie-card-padding {
     width: 100% !important; }
   #top10-modal .list > .d-flex .name {
-    width: 75%; } }
+    width: 75%; }
+  #add-post {
+    margin: 0 0rem 1.2rem 0rem;
+    padding: 1.3rem 0.5rem; } }
 
 @media (max-width: 700px) {
   .container {

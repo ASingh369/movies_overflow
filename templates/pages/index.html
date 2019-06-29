@@ -4,6 +4,26 @@
   <div class="container">
     <div class="d-flex">
       <div class="feed">
+          <div id="add-post" class="shadow">
+              <form action="{% url 'add_post' %}" method="POST" autocomplete="off">
+                {% csrf_token %}
+                <div class="sample-poster">
+                  <img src="https://image.tmdb.org/t/p/w1280/phxiKFDvPeQj4AbkvJLmuZEieDU.jpg" id="post-poster" alt="">
+                  <input type="hidden" name="movie-id" id="poster-id" value="">
+              </div>
+              <textarea rows="4" required name="post-text" placeholder="In search of any movie? Have a movie you want to recommend?" class="post-text"></textarea>
+              <div class="d-flex">
+                <div class="add-poster">
+                  <div class="poster-inner">
+                    <input type="text" class="search-poster" id="search-poster" placeholder="Add Movie poster...">
+                  </div>
+                </div>
+                <div class="post-btn">
+                  <button class="btn" type="submit">Post</button>
+                </div>
+              </div>
+            </form>
+            </div>
         <div class="post shadow">
           <div class="post-head">
             <div class="d-flex">

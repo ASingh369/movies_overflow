@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
-from .models import Grade, Top10, Follow
+from .models import Grade, Top10, Follow, Post
 from django.contrib import messages, auth
 from django.http import JsonResponse
 
@@ -180,4 +180,16 @@ def follow_user(request):
     messages.success(request, 'User followed successfully')
 
   return redirect('profile', profile_id)
+
+def add_post(request):
+  if request.method == "POST":
+    text = request.POST['post-text']
+    movie_id = request.POST['movie-id']
+    if movie_id == '':
+      movie_id = 0
+    post = Post(user=request.user, text=text, movie_id=movie_id)
+    post.save()
+    messages.success(request, 'Post added')
+  
+  return redirect('index')
   
