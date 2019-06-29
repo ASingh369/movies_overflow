@@ -17,7 +17,7 @@ class FollowAdmin(admin.ModelAdmin):
     list_per_page = 50
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('user', 'text', 'time', 'upvotes')
+    list_display = ('user', 'text', 'time', 'votes')
     list_display_links = ('user', 'text')
     list_per_page = 50
 

@@ -51,7 +51,7 @@ function showMoviePoster(e){
     tmdb.getJustMovie(e.target.id).then(data =>{
       postPoster.src = `https://image.tmdb.org/t/p/w1280/${data.movie.backdrop_path}`;
       postPoster.style.display = "inline";
-      posterID.value = e.target.id;
+      posterID.value = data.movie.backdrop_path;
     });
   }
 }

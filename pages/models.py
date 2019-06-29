@@ -23,6 +23,11 @@ class Post(models.Model):
   user = models.ForeignKey(User, on_delete=models.DO_NOTHING)  
   time = models.DateTimeField(default=datetime.now, blank=True)
   text = models.TextField()
-  upvotes = models.IntegerField(default=0)
-  downvoter = models.IntegerField(default=0)
-  movie_bg = models.CharField(max_length=500)
+  votes = models.IntegerField(default=0)
+  movie_bg = models.CharField(max_length=500, default="0")
+
+class Comment(models.Model):
+  comment = models.TextField()
+  post = models.ForeignKey(Post, on_delete=models.DO_NOTHING)
+  user = models.ForeignKey(User, on_delete=models.DO_NOTHING)  
+  time = models.DateTimeField(default=datetime.now, blank=True)

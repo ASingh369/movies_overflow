@@ -5,7 +5,13 @@ from django.contrib import messages, auth
 from django.http import JsonResponse
 
 def index(request):
-  return render(request, 'pages/index.html')
+  posts = Post.objects.filter()
+
+
+  context = {
+    'posts': posts
+  }
+  return render(request, 'pages/index.html', context)
 
 def movies(request):
   return render(request, 'pages/movies.html')
@@ -184,10 +190,10 @@ def follow_user(request):
 def add_post(request):
   if request.method == "POST":
     text = request.POST['post-text']
-    movie_id = request.POST['movie-id']
-    if movie_id == '':
-      movie_id = 0
-    post = Post(user=request.user, text=text, movie_id=movie_id)
+    movie_bg = request.POST['movie-id']
+    if movie_bg == '':
+      movie_bg = "0"
+    post = Post(user=request.user, text=text, movie_bg=movie_bg)
     post.save()
     messages.success(request, 'Post added')
   
