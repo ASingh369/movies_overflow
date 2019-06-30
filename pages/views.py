@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
-from .models import Grade, Top10, Follow, Post
+from .models import Grade, Top10, Follow, Post, Comment
 from django.contrib import messages, auth
 from django.http import JsonResponse
 
@@ -197,5 +197,16 @@ def add_post(request):
     post.save()
     messages.success(request, 'Post added')
   
+  return redirect('index')
+
+def add_comment(request):
+  if request.method == "POST":
+    comment = request.POST['comment']
+    post_id = request.POST['post_id']
+    post = Post.objects.get(id=post_id)
+    comment = Comment(post=post, comment=comment, user=request.user)
+    comment.save()
+    messages.success(request, 'Comment added')
+
   return redirect('index')
   
