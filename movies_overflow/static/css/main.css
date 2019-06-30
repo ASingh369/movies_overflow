@@ -726,6 +726,21 @@ header {
     #add-post .post-btn .btn {
       cursor: pointer; }
 
+#comments .comment-box {
+  min-width: 300px;
+  border-bottom: 2px solid #e5eff6;
+  padding: 1rem 0.5rem; }
+  #comments .comment-box .comment-heading {
+    font-size: 0.8rem;
+    color: #23b1ec; }
+    #comments .comment-box .comment-heading .name {
+      margin-right: 1rem;
+      font-size: 1rem;
+      color: #25262a; }
+  #comments .comment-box .comment-text {
+    margin: 0.5rem 0;
+    font-weight: 300; }
+
 #top10-modal .heading {
   font-size: 2rem;
   font-weight: 300;

@@ -6,6 +6,7 @@ const searchPoster = document.getElementById("search-poster");
 const posterID = document.getElementById("poster-id");
 const posterInner = document.querySelector(".poster-inner");
 const postPoster = document.querySelector("#post-poster");
+const commentsBox = document.querySelector('.comments-box');
 
 let filterActive = false;
 
@@ -60,6 +61,39 @@ function removeAllLinks(){
   for (let i = 0; i < posterInner.childNodes.length; i++){
     if (posterInner.childNodes[i].tagName == 'A' || posterInner.childNodes[i].tagName == 'a'){
       posterInner.childNodes[i].remove();
+    }
+  }
+}
+
+function showComments(post_id){
+  commentsBox.innerHTML = "";
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', `/get_comments/${post_id}`);
+  xhr.send(null);
+
+  xhr.onload = function(){
+    if (this.status === 200){
+      comments = JSON.parse(this.responseText);
+      comments.forEach(function(comment){
+        const div = document.createElement('div');
+        div.className = "comment-box";
+        div.innerHTML = `
+          <div class="comment-heading">
+            <span class="name"> ${comment.user__username} </span><i class="fas fa-clock"></i> ${comment.time}
+          </div>
+          <div class="comment-text">
+            ${comment.comment}
+          </div>
+        `;
+        commentsBox.appendChild(div);
+      });
+      if (comments.length == 0){
+        const div = document.createElement('div');
+        div.innerHTML = `Nothing to show here at the moment`;
+        commentsBox.appendChild(div);
+      }
+      $.featherlight.close();
+      $.featherlight($('#comments'), {});
     }
   }
 }

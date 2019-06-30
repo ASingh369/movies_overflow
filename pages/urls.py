@@ -6,6 +6,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('add_post', views.add_post, name='add_post'),
     path('add_comment', views.add_comment, name='add_comment'),
+    path('get_comments/<int:post_id>', views.get_comments, name='get_comments'),
     path('profile/<int:user_id>', views.profile, name='profile'),
     path('follow_user', views.follow_user, name='follow_user'),
     path('movies', views.movies, name='movies'),

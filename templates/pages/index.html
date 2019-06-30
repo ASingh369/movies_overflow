@@ -3,6 +3,28 @@
 {% load comments_count %}
 {% block content %}
 
+<!-- Comments Modal -->
+<div id="comments" class="modal">
+  <div class="comments-box">
+    <div class="comment-box">
+      <div class="comment-heading">
+        <span class="name"> John Doe </span><i class="fas fa-clock"></i> 3 min
+      </div>
+      <div class="comment-text">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, expedita.
+      </div>
+    </div>
+    <div class="comment-box">
+      <div class="comment-heading">
+        <span class="name"> John Doe </span><i class="fas fa-clock"></i> 3 min
+      </div>
+      <div class="comment-text">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, expedita.
+      </div>
+    </div>
+  </div>
+</div>
+
 <main class="home">
   <div class="container">
     <div class="d-flex">
@@ -70,7 +92,7 @@
             </div> 
             <div class="post-tail">
               <div class="show-comments">
-                 <span><i class="fas fa-comments"></i> Comments {{ post | comments_count }}</span> 
+                 <span onclick="showComments('{{post.id}}');" data-featherlight="#comments"><i class="fas fa-comments"></i> Comments {{ post | comments_count }}</span> 
               </div>
               <form action="{% url 'add_comment' %}" autocomplete="off" method="POST">
                 {% csrf_token %}

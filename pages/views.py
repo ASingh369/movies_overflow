@@ -207,6 +207,12 @@ def add_comment(request):
     comment = Comment(post=post, comment=comment, user=request.user)
     comment.save()
     messages.success(request, 'Comment added')
-
   return redirect('index')
+
+def get_comments(request, post_id):
+  comments = Comment.objects.filter(post__id=post_id).values('user__username', 'comment', 'time')
+  print(comments)
+
+  data = list(Comment.objects.filter(post__id=post_id).values('user__username', 'comment', 'time'))
+  return JsonResponse(data, safe=False)
   
