@@ -66,7 +66,7 @@
                 <div class="name-time">
                   <div class="name">
                       {% if not post.user.first_name == "" %}
-                        {{ post.user.first_name }} {{ profile_user.last_name }}
+                        {{ post.user.first_name }} {{ post.user.last_name }}
                       {% else %}
                         {{ post.user.username }}
                       {% endif %}
@@ -132,45 +132,33 @@
             Suggested
           </div>
           <div class="suggestions">
+            {% for suggestion in suggested %}
+             {% if not suggestion == request.user %}
             <div class="suggestion">
-              <div class="avi">
-                <a href="movie.html">
-                  <img class="shadow" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/tGLO9zw5ZtCeyyEWgbYGgsFxC6i.jpg" alt="">
-                </a>
+                <div class="avi">
+                  <a href="{% url 'profile' suggestion.id %}">
+                    <img class="shadow" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/tGLO9zw5ZtCeyyEWgbYGgsFxC6i.jpg" alt="">
+                  </a>
+                </div>
+                <div class="username">
+                 <a href="{% url 'profile' suggestion.id %}">
+                    {% if not suggestion.first_name == "" %}
+                      {{ suggestion.first_name }} {{ suggestion.last_name }}
+                    {% else %}
+                      {{ suggestion.username }}
+                    {% endif %}
+                 </a> 
+                </div>
+                <div class="follow">
+                  <form action="{% url 'follow_user' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="profile_id" value="{{ suggestion.id }}">
+                    <button type="submit">Follow</button>
+                  </form>
+                </div>
               </div>
-              <div class="username">
-               <a href="">John Doe</a> 
-              </div>
-              <div class="follow">
-                <button>Follow</button>
-              </div>
-            </div>
-            <div class="suggestion">
-              <div class="avi">
-                <a href="movie.html">
-                  <img class="shadow" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/hjC00Wus7IoCywVTHt68W8QxcyW.jpg" alt="">
-                </a>
-              </div>
-              <div class="username">
-               <a href="">John Doe</a> 
-              </div>
-              <div class="follow">
-                <button>Follow</button>
-              </div>
-            </div>
-            <div class="suggestion">
-              <div class="avi">
-                <a href="movie.html">
-                  <img class="shadow" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2//nu7XIa67cXc2t7frXCE5voXUJcN.jpg" alt="">
-                </a>
-              </div>
-              <div class="username">
-               <a href="">John Doe</a> 
-              </div>
-              <div class="follow">
-                <button>Follow</button>
-              </div>
-            </div>
+              {% endif %}
+            {% endfor %}
           </div>
         </div>
       </div>

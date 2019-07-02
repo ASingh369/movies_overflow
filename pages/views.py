@@ -8,7 +8,10 @@ from datetime import date, timedelta
 def index(request):
   posts = Post.objects.filter()
   if request.method == 'GET':
-    results = request.GET['results']
+    try:
+      results = request.GET['results']
+    except:
+      results = ""
     if results == 'latest':
       posts = Post.objects.filter().order_by('-time')
     elif results == 'top_w':
@@ -21,8 +24,11 @@ def index(request):
       d=date.today()-timedelta(days=365)
       posts = Post.objects.filter(time__gte=d).order_by('-votes')
 
+  suggested = User.objects.filter()
+
   context = {
-    'posts': posts
+    'posts': posts,
+    'suggested': suggested,
   }
   return render(request, 'pages/index.html', context)
 
