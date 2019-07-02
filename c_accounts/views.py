@@ -60,8 +60,9 @@ def clogin(request):
     else:
         return redirect('index')
 
-def logout(request):
+def clogout(request):
     if request.method == 'POST':
         auth.logout(request)
         messages.success(request, 'You are now logged out')
     return redirect('index')
+

@@ -5,4 +5,5 @@ from . import views
 urlpatterns = [
     path('cregister', views.cregister, name='cregister'),
     path('clogin', views.clogin, name='clogin'),
+    path('clogout', views.clogout, name='clogout'),
 ]

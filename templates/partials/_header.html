@@ -15,8 +15,18 @@
           <img id="mo-logo" src="{% static 'img/logo1.png' %}" alt="Movies Overflow" />
         </div>
         <div class="right">
-          <a href="#" data-featherlight="#sign-up">Sign Up <i class="fas fa-user-plus"></i></a>
-          <a href="#" data-featherlight="#sign-in">Sign In <i class="fas fa-sign-in-alt"></i></a>
+          {% if user.is_authenticated %}
+            <a href="javascript:{document.getElementById('logout').submit()}" >Log Out <i class="fas fa-sign-out-alt"></i></a>
+            <form action="{% url 'clogout' %}" method="POST" id="logout">
+                {% csrf_token %}
+                <input type="hidden">
+            </form>
+            
+              
+          {% else %}
+            <a href="#" data-featherlight="#sign-up">Sign Up <i class="fas fa-user-plus"></i></a>
+            <a href="#" data-featherlight="#sign-in">Sign In <i class="fas fa-sign-in-alt"></i></a>
+          {% endif %}
         </div>
       </div>
     </div>
@@ -32,10 +42,17 @@
         >
       </li>
       <li class="nav-link">
+        {% if user.is_authenticated %}
         <a href="{% url 'profile' request.user.id %}" class="{% if 'profile' in request.path %} active {% endif %}"
-          ><i class="fas fa-user-circle nav-icon"></i>
-          <span class="nav-item"> Profile</span></a
+        ><i class="fas fa-user-circle nav-icon"></i>
+        <span class="nav-item"> Profile</span></a
         >
+        {% else %}
+          <a href="" class="{% if 'profile' in request.path %} active {% endif %}"
+          ><i class="fas fa-user-circle nav-icon"></i>
+            <span class="nav-item"> Profile</span></a
+          >
+        {% endif %}
       </li>
       <li class="nav-link">
           <a href=""
