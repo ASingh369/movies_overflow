@@ -3,10 +3,23 @@ from django.contrib.auth.models import User
 from .models import Grade, Top10, Follow, Post, Comment
 from django.contrib import messages, auth
 from django.http import JsonResponse
+from datetime import date, timedelta
 
 def index(request):
   posts = Post.objects.filter()
-
+  if request.method == 'GET':
+    results = request.GET['results']
+    if results == 'latest':
+      posts = Post.objects.filter().order_by('-time')
+    elif results == 'top_w':
+      d=date.today()-timedelta(days=7)
+      posts = Post.objects.filter(time__gte=d).order_by('-votes')
+    elif results == 'top_m':
+      d=date.today()-timedelta(days=30)
+      posts = Post.objects.filter(time__gte=d).order_by('-votes')
+    elif results == 'top_all':
+      d=date.today()-timedelta(days=365)
+      posts = Post.objects.filter(time__gte=d).order_by('-votes')
 
   context = {
     'posts': posts
@@ -216,3 +229,6 @@ def get_comments(request, post_id):
   data = list(Comment.objects.filter(post__id=post_id).values('user__username', 'comment', 'time'))
   return JsonResponse(data, safe=False)
   
+def no_log_in(request):
+  messages.error(request, "You need to be logged in to view this page")
+  return redirect("index")

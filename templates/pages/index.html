@@ -99,7 +99,7 @@
                 <div class="add-comment">
                   <input type="hidden" name="post_id" value="{{ post.id }}">
                   <input class="comment" required name="comment" type="text" placeholder="Add comment...">
-                  <button type="submit" id="post-comment-btn">Post</button>
+                  <button type="submit">Post</button>
                 </div>
               </form>
             </div>             
@@ -115,13 +115,16 @@
           </div>
           <div class="filter-posts"><i class="fas fa-filter"></i> Filter Posts <i class="fas fa-sort-down"></i></div>
           <div class="content-relative">
-            <ul class="filter" id="filter-options">            
-              <li class="active">All</li>
-              <li>Latest</li>
-              <li>Top (Past Week)</li>
-              <li>Top (Past Month)</li>
-              <li>Top (All Time)</li>
-            </ul>
+            <form action="{% url 'index' %}" id="sort-results-form">
+              <input type="hidden" name="results" id="sort-value" value="">
+              <ul class="filter" id="filter-options"> 
+                <li id="all" class="active">All</li>
+                <li id="latest">Latest</li>
+                <li id="top_w">Top (Past Week)</li>
+                <li id="top_m">Top (Past Month)</li>
+                <li id="top_all">Top (All Time)</li>
+              </ul>
+            </form>
           </div>
         </div>
         <div class="suggested">

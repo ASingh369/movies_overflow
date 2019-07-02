@@ -48,14 +48,14 @@
         <span class="nav-item"> Profile</span></a
         >
         {% else %}
-          <a href="" class="{% if 'profile' in request.path %} active {% endif %}"
+          <a href="{% url 'no_log_in' %}" class="{% if 'profile' in request.path %} active {% endif %}"
           ><i class="fas fa-user-circle nav-icon"></i>
             <span class="nav-item"> Profile</span></a
           >
         {% endif %}
       </li>
       <li class="nav-link">
-          <a href=""
+          <a href="{% url 'index' %}"
             ><i class="fas fa-pen"></i>
             <span class="nav-item"> New Post</span></a
           >

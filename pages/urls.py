@@ -19,4 +19,5 @@ urlpatterns = [
     path('get_top10_movies/<int:user_id>', views.get_top10_movies, name='get_top10_movies'),
     path('get_graded_movies/<int:user_id>/<int:grade>', views.get_graded_movies, name='get_graded_movies'),
     path('get_all_graded_movies/<int:user_id>', views.get_all_graded_movies, name='get_all_graded_movies'),
+    path('no_log_in', views.no_log_in, name='no_log_in'),
 ]

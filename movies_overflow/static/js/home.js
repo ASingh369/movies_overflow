@@ -7,6 +7,9 @@ const posterID = document.getElementById("poster-id");
 const posterInner = document.querySelector(".poster-inner");
 const postPoster = document.querySelector("#post-poster");
 const commentsBox = document.querySelector('.comments-box');
+const filterOptions = document.getElementById('filter-options');
+const sortResultsForm = document.getElementById('sort-results-form');
+const sortValue = document.getElementById('sort-value');
 
 let filterActive = false;
 
@@ -15,6 +18,7 @@ if(filterPosts != null) {
   filterPosts.addEventListener('click', showFilter);
   searchPoster.addEventListener("keyup", showPosterDropdown);
   posterInner.addEventListener('click', showMoviePoster);
+  filterOptions.addEventListener('click', submitSortResultsForm);
   removeAllLinks();
 }
 function showFilter(){
@@ -97,3 +101,10 @@ function showComments(post_id){
     }
   }
 }
+
+function submitSortResultsForm(e){
+  console.log(e.target.id);
+  sortValue.value = e.target.id;
+  sortResultsForm.submit();
+}
+
