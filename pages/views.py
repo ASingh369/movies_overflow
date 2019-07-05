@@ -179,7 +179,7 @@ def get_all_graded_movies(request, user_id):
   return JsonResponse(data, safe=False)
 
 def profile(request, user_id):
-
+    
   profile_user = get_object_or_404(User, id=user_id)
   already_follows = False
 
@@ -188,9 +188,9 @@ def profile(request, user_id):
   movies_graded = Grade.objects.filter(user=profile_user).count()
 
   top10_movies = Top10.objects.filter(user=profile_user)
-
-  if profile_user == request.user or Follow.objects.filter(user=profile_user, follower=request.user):
-    already_follows = True
+  if request.user.is_authenticated:
+    if profile_user == request.user or Follow.objects.filter(user=profile_user, follower=request.user):
+      already_follows = True
 
   context = {
     'profile_user': profile_user,
@@ -204,14 +204,19 @@ def profile(request, user_id):
 
 
 def follow_user(request):
-  if request.method == "POST":
-    profile_id = request.POST["profile_id"]
-    profile_user = User.objects.get(id=profile_id)
-    follow = Follow(user=profile_user, follower=request.user)
-    follow.save()
-    messages.success(request, 'User followed successfully')
-
+  if request.user.is_authenticated:
+    if request.method == "POST":
+      profile_id = request.POST["profile_id"]
+      profile_user = User.objects.get(id=profile_id)
+      follow = Follow(user=profile_user, follower=request.user)
+      follow.save()
+      messages.success(request, 'User followed successfully')
+  else:
+    if request.method == "POST":
+      profile_id = request.POST["profile_id"]
+      messages.error(request, 'You are not logged in')
   return redirect('profile', profile_id)
+  
 
 def add_post(request):
   if request.method == "POST":
