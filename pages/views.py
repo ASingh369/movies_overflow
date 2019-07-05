@@ -37,9 +37,10 @@ def movies(request):
 
 def movie(request, movie_id):
   grade = ""
-  grades = Grade.objects.filter(user=request.user, movie_id=movie_id)
-  if grades:
-    grade = Grade.objects.get(user=request.user, movie_id=movie_id).grade
+  if request.user.is_authenticated:
+    grades = Grade.objects.filter(user=request.user, movie_id=movie_id)
+    if grades:
+      grade = Grade.objects.get(user=request.user, movie_id=movie_id).grade
 
   context = {
     'movie_id': movie_id,
@@ -65,41 +66,47 @@ def grade_movie(request):
         messages.success(request, 'Movie Graded')
   else:
     messages.error(request, 'You need to be logged in to grade a movie')
+    movie_id = request.POST['movie_id']
 
   return redirect('movie', movie_id)
 
 def add_to_top10(request):
-  if request.method == 'POST':
-      movie_id = request.POST['movie_id']
+  if request.user.is_authenticated:
+    if request.method == 'POST':
+        movie_id = request.POST['movie_id']
 
-      current_top_count = Top10.objects.filter(user=request.user).count()
+        current_top_count = Top10.objects.filter(user=request.user).count()
 
-      movie_already_exists = Top10.objects.filter(user=request.user, movie_id=movie_id)
+        movie_already_exists = Top10.objects.filter(user=request.user, movie_id=movie_id)
 
-      if not movie_already_exists:
-        if current_top_count == 0:
-          # Create new user list
-          new_top10 = Top10(user=request.user, movie_id=movie_id, rank=1)
-          new_top10.save()
-          messages.success(request, 'created new list')
-        elif current_top_count < 10:
-          # add to list
-          new_top10 = Top10(user=request.user, movie_id=movie_id, rank=current_top_count+1)
-          new_top10.save()
-          messages.success(request, 'new movie added to list')
+        if not movie_already_exists:
+          if current_top_count == 0:
+            # Create new user list
+            new_top10 = Top10(user=request.user, movie_id=movie_id, rank=1)
+            new_top10.save()
+            messages.success(request, 'created new list')
+          elif current_top_count < 10:
+            # add to list
+            new_top10 = Top10(user=request.user, movie_id=movie_id, rank=current_top_count+1)
+            new_top10.save()
+            messages.success(request, 'new movie added to list')
+          else:
+            # edit last movie
+            current_last_movie = Top10.objects.get(user=request.user, rank=10)
+            current_last_movie.movie_id = movie_id
+
+            current_last_movie.save()
+            messages.success(request, 'last movie changed')
+
+            
+            print(current_top_count)
         else:
-          # edit last movie
-          current_last_movie = Top10.objects.get(user=request.user, rank=10)
-          current_last_movie.movie_id = movie_id
-
-          current_last_movie.save()
-          messages.success(request, 'last movie changed')
-
-          
-          print(current_top_count)
-      else:
-        # movie already in your top 10 list
-        messages.success(request, 'Movie already exists in your top 10 list')
+          # movie already in your top 10 list
+          messages.success(request, 'Movie already exists in your top 10 list')
+  else:
+    if request.method == 'POST':
+        movie_id = request.POST['movie_id']
+        messages.error(request, 'You are not logged in')
   return redirect('movie', movie_id)
 
 def get_top10_movies(request, user_id):
